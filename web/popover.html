@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=divice-width,initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" >
+        <script type="text/javascript" src="./js/jquery.js" ></script>
+        <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <h1>Popover <small>ตัวอย่างการใช้งาน Popover</small></h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!--
+            <button 
+                class="btn btn-default"
+                id="btnPopover"
+                title="My Popover"
+                data-content="ทดสอบการแสดงผลของ Popover.js"
+                data-placement="top"
+                data-trigger="focus">
+                Popover JS
+            </button>
+            <script type="text/javascript">
+                $('#btnPopover').popover();
+            </script>
+            -->
+            <div id="myPopover">
+                <button
+                    id="btnPopover"
+                    data-placement="bottom"
+                    class="btn btn-success"
+                    >
+                    ค้นหา...
+                </button>
+                <!-- title and content -->
+                <h2 id="title" class="hide"> ค้นหา </h2>
+                <div id="content" class="hide">
+                    <form class="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="กรอกคำค้น...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#myPopover>#btnPopover').popover({
+                html: true,
+                title: function () {
+                    return $(this).parent().find('#title').html();
+                },
+                content: function () {
+                    return $(this).parent().find('#content').html();
+                }
+            });
+        </script>
+    </body>
+</html>
